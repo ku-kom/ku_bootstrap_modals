@@ -20,6 +20,3 @@ if ($versionInformation->getMajorVersion() < 12) {
       @import "EXT:ku_bootstrap_modals/Configuration/page.tsconfig"
    ');
 }
-
-// Viewhelper namespace
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['KuSwiper'] = ['UniversityOfCopenhagen\KuBootstrapModals\ViewHelpers'];

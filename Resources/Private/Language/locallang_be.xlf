@@ -18,89 +18,29 @@
         <trans-unit id="modal_content_desc">
             <source>Add existing content to create a modal popup</source>
         </trans-unit>
-        <trans-unit id="modal_item">
-            <source>Add modal item</source>
+        <trans-unit id="button_label">
+            <source>Trigger button text</source>
         </trans-unit>
-        <trans-unit id="modal_records">
-            <source>Add content elements</source>
+        <trans-unit id="button_label_description">
+            <source>This is the button you click on to open the modal popup</source>
         </trans-unit>
-        <trans-unit id="settings">
-            <source>Modal settings</source>
+        <trans-unit id="modal_header">
+            <source>Modal header text</source>
         </trans-unit>
-        <trans-unit id="basic_settings">
-            <source>Basic settings</source>
+        <trans-unit id="modal_content">
+            <source>Modal text content</source>
         </trans-unit>
-        <trans-unit id="smartphone_title">
-            <source>Mobile</source>
+        <trans-unit id="modal_content_settings">
+            <source>Modal content</source>
         </trans-unit>
-        <trans-unit id="tablet_title">
-            <source>Tablet</source>
+        <trans-unit id="modal_type">
+            <source>Modal type</source>
         </trans-unit>
-        <trans-unit id="desktop_title">
-            <source>Desktop</source>
+        <trans-unit id="modal_default">
+            <source>Only text and/or image (default)</source>
         </trans-unit>
-        <trans-unit id="widescreen_title">
-            <source>Widescreen and up</source>
-        </trans-unit>
-        <trans-unit id="enabled">
-            <source>True</source>
-        </trans-unit>
-        <trans-unit id="disabled">
-            <source>False</source>
-        </trans-unit>
-        <trans-unit id="autoplay">
-            <source>Autoplay</source>
-        </trans-unit>
-        <trans-unit id="loop">
-            <source>Infinite loop</source>
-        </trans-unit>
-        <trans-unit id="arrows">
-            <source>Display arrows (navigation)</source>
-        </trans-unit>
-        <trans-unit id="dots">
-            <source>Display dots (pagination)</source>
-        </trans-unit>
-        <trans-unit id="fade">
-            <source>Fade slides</source>
-        </trans-unit>
-         <trans-unit id="randomStart">
-            <source>Random start slide</source>
-        </trans-unit>
-        <trans-unit id="centeredSlides">
-            <source>Center active slides</source>
-        </trans-unit>
-        <trans-unit id="slidesToShow">
-            <source>Number of slides to show at a time</source>
-        </trans-unit>
-        <trans-unit id="slidesToShow_desc">
-            <source>Hint: Can be a number with decimals, e.g. 1.3 for displaying partial slides</source>
-        </trans-unit>
-        <trans-unit id="slidesToScroll">
-            <source>Number of slides to scroll at a time</source>
-        </trans-unit>
-        <trans-unit id="slidespeed">
-            <source>Slide speed (miliseconds)</source>
-        </trans-unit>
-        <trans-unit id="reachedEnd">
-            <source>Stop slideshow when end is reached</source>
-        </trans-unit>
-        <trans-unit id="lazyLoad">
-            <source>Lazy load images</source>
-        </trans-unit>
-        <trans-unit id="slidelink">
-            <source>Slide link</source>
-        </trans-unit>
-        <trans-unit id="item_media">
-            <source>Select image</source>
-        </trans-unit>
-        <trans-unit id="slide_item">
-            <source>Slides</source>
-        </trans-unit>
-        <trans-unit id="slide_header">
-            <source>Slide caption header</source>
-        </trans-unit>
-        <trans-unit id="slide_bodytext">
-            <source>Slide caption text</source>
+            <trans-unit id="modal_records">
+            <source>Add existing content elements</source>
         </trans-unit>
         </body>
     </file>

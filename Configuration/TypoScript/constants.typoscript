@@ -1,10 +1,10 @@
 page {
     templates {
-        # cat=KU Swiper slideshow - Content Element - Templates //103; type=string; label=Layout Root Path: Path to layouts (with an trailing slash).
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //103; type=string; label=Layout Root Path: Path to layouts (with an trailing slash).
         layoutRootPath = EXT:ku_bootstrap_modals/Resources/Private/Layouts/
-        # cat=KU Swiper slideshow - Content Element - Templates //102; type=string; label=Partial Root Path: Path to partials (with an trailing slash).
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //102; type=string; label=Partial Root Path: Path to partials (with an trailing slash).
         partialRootPath = EXT:ku_bootstrap_modals/Resources/Private/Partials/
-        # cat=KU Swiper slideshow - Content Element - Templates //101; type=string; label=Layout Root Path: Path to templates (with an trailing slash).
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //101; type=string; label=Layout Root Path: Path to templates (with an trailing slash).
         templateRootPath = EXT:ku_bootstrap_modals/Resources/Private/Templates/
     }
 }

@@ -1,5 +1,98 @@
-######################
-#### DEPENDENCIES ####
-######################
-@import 'EXT:ku_bootstrap_modals/Configuration/TypoScript/modal_items/setup.typoscript'
-@import 'EXT:ku_bootstrap_modals/Configuration/TypoScript/Swiper_content/setup.typoscript'
+##############################################
+####### CTYPE: KU SWIPERJS SLIDESHOW #########
+##############################################
+
+tt_content.ku_bootstrap_modals >
+tt_content.ku_bootstrap_modals =< lib.contentElement
+tt_content.ku_bootstrap_modals {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Modal
+    templateRootPaths {
+        10 = EXT:ku_bootstrap_modals/Resources/Private/Templates/
+        20 = {$page.templates.templateRootPath}
+    }
+	partialRootPaths {
+		10 = EXT:ku_bootstrap_modals/Resources/Private/Partials/
+        20 = {$page.templates.partialRootPath}
+	}
+
+    layoutRootPaths {
+        10 = EXT:ku_bootstrap_modals/Resources/Private/Layouts/
+        20 = {$page.templates.layoutRootPath}
+    }
+
+}
+
+
+#########################
+### RESPONSIVE IMAGES ###
+#########################
+lib.contentElement.settings.responsiveimages.contentelements {
+    ku_bootstrap_modals {
+        left {
+            multiplier {
+                default = 0.5
+                xlarge = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 24
+                xlarge = 24
+                large = 24
+                medium = 24
+            }
+            corrections {
+                default = 25
+                xlarge = 25
+                large = 25
+                medium = 25
+                small = 50
+                extrasmall = 50
+            }
+        }
+        top {
+            corrections {
+                default = 50
+                large = 50
+                medium = 50
+                small = 50
+                extrasmall = 50
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                xlarge = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 24
+                xlarge = 24
+                large = 24
+                medium = 24
+            }
+            corrections {
+                default = 25
+                xlarge = 25
+                large = 25
+                medium = 25
+                small = 50
+                extrasmall = 50
+            }
+        }
+        bottom {
+            corrections {
+                default = 50
+                large = 50
+                medium = 50
+                small = 50
+                extrasmall = 50
+            }
+        }
+    }
+}

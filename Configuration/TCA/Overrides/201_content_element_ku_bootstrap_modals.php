@@ -38,7 +38,7 @@ call_user_func(function () {
 
     // New palette for modal content
     $GLOBALS['TCA']['tt_content']['palettes']['modals_content'] = array(
-        'showitem' => 'tx_ku_bootstrap_modals_button_label, tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, --linebreak--, media, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
+        'showitem' => 'tx_ku_bootstrap_modals_button_label, tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
     );
 
     // Configure element type
@@ -117,11 +117,12 @@ call_user_func(function () {
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
                     ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_sm','modal-sm'],
+                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
                     ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_lg','modal-lg'],
                     ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_xl','modal-xl'],
                 ],
+                'default' => 'modal-lg',
             ],
         ],
         'tx_ku_bootstrap_modals_content_elements' => [
@@ -143,11 +144,11 @@ call_user_func(function () {
                 ],
          ],
       ],
-      'media' => [
+      'image' => [
         'exclude' => true,
         'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'media',
+                'image',
                 [
                     'maxitems' => 1,
                     'filter' => [

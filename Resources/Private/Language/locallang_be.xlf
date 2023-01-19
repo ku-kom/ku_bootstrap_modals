@@ -22,7 +22,7 @@
             <source>Trigger button text</source>
         </trans-unit>
         <trans-unit id="button_label_description">
-            <source>This is the button you click on to open the modal popup</source>
+            <source>Button to click on to open the modal popup</source>
         </trans-unit>
         <trans-unit id="modal_header">
             <source>Modal header text</source>

@@ -23,8 +23,8 @@
                     <f:if condition="{data.bodytext}">
                         <f:format.raw>{data.bodytext}</f:format.raw>
                     </f:if>
-                    <f:if condition="{media.0}">
-                        <f:image image="{media.0}" class="img-fluid" />
+                    <f:if condition="{image.0}">
+                        <f:image image="{image.0}" class="img-fluid" />
                     </f:if>
                     <f:for each="{records}" as="record">
                         <f:cObject typoscriptObjectPath="tt_content" data="{record.data}" />

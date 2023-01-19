@@ -30,8 +30,8 @@ tt_content.ku_bootstrap_modals {
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         10 {
-            references.fieldName = media
-            as = media
+            references.fieldName = image
+            as = image
         }
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {

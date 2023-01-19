@@ -1,0 +1,66 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+    <f:flashMessages />
+    <f:if condition="{records}">
+        <f:variable name="totalcount">{records -> f:count()}</f:variable>
+        <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
+        <f:variable name="navigation-sm" value="{data.pi_flexform.arrows-smartphone -> f:format.raw()}" />
+        <f:if condition="{navigation-sm} === '0'">
+            <f:variable name="nav-sm" value="hide-navigation-sm" />
+        </f:if>
+        <f:variable name="navigation-md" value="{data.pi_flexform.arrows-tablet -> f:format.raw()}" />
+        <f:if condition="{navigation-md} === '0'">
+            <f:variable name="nav-md" value="hide-navigation-md" />
+        </f:if>
+        <f:variable name="navigation-lg" value="{data.pi_flexform.arrows-desktop -> f:format.raw()}" />
+        <f:if condition="{navigation-lg} === '0'">
+            <f:variable name="nav-lg" value="hide-navigation-lg" />
+        </f:if>
+        <f:variable name="navigation-xl" value="{data.pi_flexform.arrows-widescreen -> f:format.raw()}" />
+        <f:if condition="{navigation-xl} === '0'">
+            <f:variable name="nav-xl" value="hide-navigation-xl" />
+        </f:if>
+        <f:variable name="pagination-sm" value="{data.pi_flexform.dots-spartphone -> f:format.raw()}" />
+        <f:if condition="{pagination-sm} === '0'">
+            <f:variable name="pag-sm" value="hide-pagination-sm" />
+        </f:if>
+        <f:variable name="pagination-md" value="{data.pi_flexform.dots-tablet -> f:format.raw()}" />
+        <f:if condition="{pagination-md} === '0'">
+            <f:variable name="pag-md" value="hide-pagination-md" />
+        </f:if>
+        <f:variable name="pagination-lg" value="{data.pi_flexform.dots-desktop -> f:format.raw()}" />
+        <f:if condition="{pagination-lg} === '0'">
+            <f:variable name="pag-lg" value="hide-pagination-lg" />
+        </f:if>
+        <f:variable name="pagination-xl" value="{data.pi_flexform.dots-widescreen -> f:format.raw()}" />
+        <f:if condition="{pagination-xl} === '0'">
+            <f:variable name="pag-xl" value="hide-pagination-xl" />
+        </f:if>
+
+        <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
+            <div class="swiper swiper{data.uid}">
+                <div class="swiper-wrapper">
+                    <f:for each="{records}" as="record">
+                        <f:render partial="SlideItems" arguments="{_all}" />
+                    </f:for>
+                </div>
+            </div>
+            <div class="{swiper}-next swiper-button-next"></div>
+            <div class="{swiper}-prev swiper-button-prev"></div>
+            <div class="{swiper}-dots swiper-pagination"></div>
+            <f:if condition="{data.pi_flexform.autoplay} === '1' && {totalcount} > 1">
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_bootstrap_modals')}" class="btn btn-{swiper} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+            </f:if>
+        </div>
+        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
+    </f:if>
+</f:section>
+<f:section name="HeaderAssets">
+    <f:render partial="HeaderAssets" arguments="{_all}" />
+</f:section>
+<f:section name="FooterAssets">
+    <f:render partial="FooterAssets" arguments="{_all}" />
+</f:section>
+
+</html>

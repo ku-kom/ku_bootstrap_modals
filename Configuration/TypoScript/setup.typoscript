@@ -1,0 +1,5 @@
+######################
+#### DEPENDENCIES ####
+######################
+@import 'EXT:ku_bootstrap_modals/Configuration/TypoScript/modal_items/setup.typoscript'
+@import 'EXT:ku_bootstrap_modals/Configuration/TypoScript/Swiper_content/setup.typoscript'

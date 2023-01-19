@@ -1,0 +1,30 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        ku_bootstrap_modals {
+            iconIdentifier = ku-bootstrap-modals-icon
+            title = LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_title
+            description = LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_desc
+            tt_content_defValues {
+                CType = ku_bootstrap_modals
+            }
+        }
+    }
+    show := addToList(ku_bootstrap_modals)
+}
+
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        ku_bootstrap_modals_content {
+            iconIdentifier = ku-bootstrap-modals-icon
+            title = LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_content_title
+            description = LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_content_desc
+            tt_content_defValues {
+                CType = ku_bootstrap_modals_content
+            }
+        }
+    }
+    show := addToList(ku_bootstrap_modals_content)
+}

@@ -38,7 +38,7 @@ call_user_func(function () {
 
     // New palette for modal content
     $GLOBALS['TCA']['tt_content']['palettes']['modals_content'] = array(
-        'showitem' => 'tx_ku_bootstrap_modals_button_label, tx_ku_bootstrap_modals_type, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, --linebreak--, media, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
+        'showitem' => 'tx_ku_bootstrap_modals_button_label, tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, --linebreak--, media, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
     );
 
     // Configure element type
@@ -77,15 +77,17 @@ call_user_func(function () {
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', [
         'tx_ku_bootstrap_modals_button_label' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:button_label',
             'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:button_label_description',
             'config' => [
                 'type' => 'input',
                 'max' => 50,
-                'eval' => 'trim'
+                'eval' => 'trim,required'
             ],
         ],
         'tx_ku_bootstrap_modals_modal_title' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_header',
             'config' => [
                 'type' => 'input',
@@ -94,7 +96,9 @@ call_user_func(function () {
             ],
         ],
         'tx_ku_bootstrap_modals_type' => [
+            'exclude' => true,
             'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_type',
+            'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_type_desc',
             'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
@@ -105,9 +109,24 @@ call_user_func(function () {
                 ],
             ],
         ],
+        'tx_ku_bootstrap_modals_size' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size',
+            'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_desc',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
+                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_sm','modal-sm'],
+                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_lg','modal-lg'],
+                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_xl','modal-xl'],
+                ],
+            ],
+        ],
         'tx_ku_bootstrap_modals_content_elements' => [
              'displayCond' =>'FIELD:tx_ku_bootstrap_modals_type:=:content',
-             'exclude' => 1,
+             'exclude' => true,
              'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_records',
              'config' => [
                 'type' => 'group',
@@ -124,5 +143,70 @@ call_user_func(function () {
                 ],
          ],
       ],
+      'media' => [
+        'exclude' => true,
+        'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_media',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'media',
+                [
+                    'maxitems' => 1,
+                    'filter' => [
+                        0 => [
+                            'parameters' => [
+                                'allowedFileExtensions' => 'jpg,jpeg,png',
+                            ],
+                        ],
+                    ],
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'overrideChildTca' => [
+                        'columns' => [
+                            'uid_local' => [
+                                'config' => [
+                                    'appearance' => [
+                                        'elementBrowserAllowed' => 'jpg,jpeg,png',
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'types' => [
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;
+                                    imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.audioOverlayPalette;audioOverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
+                            ]
+                        ]
+                    ]
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+            ),
+        ],
     ]);
 });

@@ -24,6 +24,25 @@ tt_content.ku_bootstrap_modals {
         20 = {$page.templates.layoutRootPath}
     }
 
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = media
+            as = media
+        }
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            if.isTrue.field = tx_ku_bootstrap_modals_content_elements
+            table = tt_content
+            uidInList.field = tx_ku_bootstrap_modals_content_elements
+            pidInList = 0
+            orderBy = sorting
+            as = records
+        }
+    }
 }
 
 

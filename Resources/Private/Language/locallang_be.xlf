@@ -36,11 +36,35 @@
         <trans-unit id="modal_type">
             <source>Modal type</source>
         </trans-unit>
+         <trans-unit id="modal_type_desc">
+            <source>Select if modals should include an option to add existing content.</source>
+        </trans-unit>
         <trans-unit id="modal_default">
             <source>Only text and/or image (default)</source>
         </trans-unit>
             <trans-unit id="modal_records">
             <source>Add existing content elements</source>
+        </trans-unit>
+        <trans-unit id="modal_size">
+            <source>Modal width</source>
+        </trans-unit>
+        <trans-unit id="modal_size_desc">
+            <source>Note: Modals are always 100% wide on mobile</source>
+        </trans-unit>
+        <trans-unit id="modal_size_sm">
+            <source>Small</source>
+        </trans-unit>
+        <trans-unit id="modal_size_default">
+            <source>Default</source>
+        </trans-unit>
+        <trans-unit id="modal_size_lg">
+            <source>Large</source>
+        </trans-unit>
+        <trans-unit id="modal_size_xl">
+            <source>Extra large</source>
+        </trans-unit>
+        <trans-unit id="modal_media">
+            <source>Add media</source>
         </trans-unit>
         </body>
     </file>

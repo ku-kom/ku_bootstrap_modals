@@ -6,11 +6,8 @@
             <authorEmail>nel@adm.ku.dk</authorEmail>
         </header>
         <body>
-            <trans-unit id="pause">
-            <source>Pause (use spacebar)</source>
-        </trans-unit>
-        <trans-unit id="play">
-            <source>Play (use spacebar)</source>
+         <trans-unit id="modal_close">
+            <source>Close</source>
         </trans-unit>
         </body>
     </file>

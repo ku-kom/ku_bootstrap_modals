@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2022-06-15UTC07:12:052">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-01-15UTC07:12:052">
         <header>
-            <authorName>Nanna Ellegaard</authorName>
-            <authorEmail>nel@adm.ku.dk</authorEmail>
         </header>
         <body>
         <trans-unit id="modal_title">
@@ -37,13 +35,13 @@
             <source>Modal type</source>
         </trans-unit>
          <trans-unit id="modal_type_desc">
-            <source>Select if modals should include an option to add existing content.</source>
+            <source>Enable option to add existing content.</source>
         </trans-unit>
         <trans-unit id="modal_default">
             <source>Only text and/or image (default)</source>
         </trans-unit>
-            <trans-unit id="modal_records">
-            <source>Add existing content elements</source>
+        <trans-unit id="modal_records">
+            <source>Enable option to add existing content</source>
         </trans-unit>
         <trans-unit id="modal_size">
             <source>Modal width</source>
@@ -64,7 +62,10 @@
             <source>Extra large</source>
         </trans-unit>
         <trans-unit id="modal_media">
-            <source>Add media</source>
+            <source>Add image</source>
+        </trans-unit>
+        <trans-unit id="modal_center">
+            <source>Vertically center the modal</source>
         </trans-unit>
         </body>
     </file>

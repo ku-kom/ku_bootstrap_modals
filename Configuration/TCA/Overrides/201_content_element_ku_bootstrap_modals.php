@@ -38,7 +38,7 @@ call_user_func(function () {
 
     // New palette for modal content
     $GLOBALS['TCA']['tt_content']['palettes']['modals_content'] = array(
-        'showitem' => 'tx_ku_bootstrap_modals_button_label, tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
+        'showitem' => 'tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, tx_ku_bootstrap_modals_centered, --linebreak--, tx_ku_bootstrap_modals_button_label, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
     );
 
     // Configure element type
@@ -125,6 +125,20 @@ call_user_func(function () {
                 'default' => 'modal-lg',
             ],
         ],
+        'tx_ku_bootstrap_modals_centered' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_center',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                   [
+                      0 => '',
+                      1 => '',
+                   ]
+                ],
+            ],
+        ],
         'tx_ku_bootstrap_modals_content_elements' => [
              'displayCond' =>'FIELD:tx_ku_bootstrap_modals_type:=:content',
              'exclude' => true,
@@ -154,7 +168,7 @@ call_user_func(function () {
                     'filter' => [
                         0 => [
                             'parameters' => [
-                                'allowedFileExtensions' => 'jpg,jpeg,png',
+                                'allowedFileExtensions' => 'jpg,jpeg,png,svg',
                             ],
                         ],
                     ],
@@ -166,7 +180,7 @@ call_user_func(function () {
                             'uid_local' => [
                                 'config' => [
                                     'appearance' => [
-                                        'elementBrowserAllowed' => 'jpg,jpeg,png',
+                                        'elementBrowserAllowed' => 'jpg,jpeg,png,svg',
                                     ],
                                 ],
                             ],

@@ -2,7 +2,6 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
-
     <f:variable name="modal-id">{data.uid}</f:variable>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{modal-id}">
         <f:format.raw>{data.tx_ku_bootstrap_modals_button_label}</f:format.raw>
@@ -38,6 +37,12 @@
             </div>
         </div>
     </div>
+    <f:if condition="{lib.pagecss !== ''}">
+        <f:asset.css identifier="modalCSS" href="{f:cObject(typoscriptObjectPath: 'lib.pagecss')}" />
+    </f:if>
+    <f:if condition="{lib.pagejs !== ''}">
+        <f:asset.script identifier="modalJs" src="{f:cObject(typoscriptObjectPath: 'lib.pagejs')}" />
+    </f:if>
 </f:section>
 
 </html>

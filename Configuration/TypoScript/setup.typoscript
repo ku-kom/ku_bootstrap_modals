@@ -44,3 +44,21 @@ tt_content.ku_bootstrap_modals {
         }
     }
 }
+
+##########################
+#### OPTION TO ADD CSS ###
+##########################
+lib.pagecss = TEXT
+lib.pagecss {
+    if.isTrue = {$page.assets.extraCss}
+    value = {$page.assets.extraCss}
+}
+
+##########################
+#### OPTION TO ADD JS ####
+##########################
+lib.pagejs = TEXT
+lib.pagejs {
+    if.isTrue = {$page.assets.extraJs}
+    value = {$page.assets.extraJs}
+}

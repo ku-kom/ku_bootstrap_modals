@@ -12,16 +12,16 @@ tt_content.ku_bootstrap_modals {
     templateName = Modal
     templateRootPaths {
         10 = EXT:ku_bootstrap_modals/Resources/Private/Templates/
-        20 = {$page.templates.templateRootPath}
+        20 = {$ku_bootstrap_modals.templates.templateRootPath}
     }
 	partialRootPaths {
 		10 = EXT:ku_bootstrap_modals/Resources/Private/Partials/
-        20 = {$page.templates.partialRootPath}
+        20 = {$ku_bootstrap_modals.templates.partialRootPath}
 	}
 
     layoutRootPaths {
         10 = EXT:ku_bootstrap_modals/Resources/Private/Layouts/
-        20 = {$page.templates.layoutRootPath}
+        20 = {$ku_bootstrap_modals.templates.layoutRootPath}
     }
 
     ##########################
@@ -50,8 +50,8 @@ tt_content.ku_bootstrap_modals {
 ##########################
 lib.pagecss = TEXT
 lib.pagecss {
-    if.isTrue = {$page.assets.extraCss}
-    value = {$page.assets.extraCss}
+    if.isTrue = {$ku_bootstrap_modals.assets.extraCss}
+    value = {$ku_bootstrap_modals.assets.extraCss}
 }
 
 ##########################
@@ -59,6 +59,6 @@ lib.pagecss {
 ##########################
 lib.pagejs = TEXT
 lib.pagejs {
-    if.isTrue = {$page.assets.extraJs}
-    value = {$page.assets.extraJs}
+    if.isTrue = {$ku_bootstrap_modals.assets.extraJs}
+    value = {$ku_bootstrap_modals.assets.extraJs}
 }

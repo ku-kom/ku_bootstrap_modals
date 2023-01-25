@@ -1,4 +1,4 @@
-page {
+ku_bootstrap_modals {
     templates {
         # cat=KU Bootstrap 5 modals/files; type=string; label=Layout Root Path: Path to layout (with a trailing slash).
         layoutRootPath = EXT:ku_bootstrap_modals/Resources/Private/Layouts/
@@ -8,9 +8,9 @@ page {
         templateRootPath = EXT:ku_bootstrap_modals/Resources/Private/Templates/
     }
     assets {
-        # cat=KU Bootstrap 5 modals//105; type=string; label=CSS assets: Path to stylesheet.
+        # cat=KU Bootstrap 5 modals/10/105; type=string; label=CSS assets: Path to stylesheet.
         extraCss =
-        # cat=KU Bootstrap 5 modals//106; type=string; label=JavaScript assets: Path to javaScript file.
+        # cat=KU Bootstrap 5 modals/10/106; type=string; label=JavaScript assets: Path to javaScript file.
         extraJs =
     }
 }

@@ -37,11 +37,11 @@
             </div>
         </div>
     </div>
-    <f:if condition="{lib.pagecss !== ''}">
-        <f:asset.css identifier="modalCSS" href="{f:cObject(typoscriptObjectPath: 'lib.pagecss')}" />
+    <f:if condition="{lib.ku_bootstrap_modals.pagecss !== ''}">
+        <f:asset.css identifier="modalCSS" href="{f:cObject(typoscriptObjectPath: 'lib.ku_bootstrap_modals.pagecss')}" />
     </f:if>
-    <f:if condition="{lib.pagejs !== ''}">
-        <f:asset.script identifier="modalJs" src="{f:cObject(typoscriptObjectPath: 'lib.pagejs')}" />
+    <f:if condition="{lib.ku_bootstrap_modals.pagejs !== ''}">
+        <f:asset.script identifier="modalJs" src="{f:cObject(typoscriptObjectPath: 'lib.ku_bootstrap_modals.pagejs')}" />
     </f:if>
 </f:section>
 

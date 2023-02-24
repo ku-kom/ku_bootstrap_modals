@@ -16,6 +16,12 @@
         <trans-unit id="modal_content_desc">
             <source>Add existing content to create a modal popup</source>
         </trans-unit>
+        <trans-unit id="settings">
+            <source>modal settings</source>
+        </trans-unit>
+        <trans-unit id="advanced">
+            <source>General settings</source>
+        </trans-unit>
         <trans-unit id="button_label">
             <source>Trigger button text</source>
         </trans-unit>
@@ -44,7 +50,7 @@
             <source>Add existing content</source>
         </trans-unit>
         <trans-unit id="modal_size">
-            <source>Modal size</source>
+            <source>Modal size (width)</source>
         </trans-unit>
         <trans-unit id="modal_size_desc">
             <source>Note: Modals are always 100% wide on mobile</source>
@@ -65,7 +71,7 @@
             <source>Add image</source>
         </trans-unit>
         <trans-unit id="modal_center">
-            <source>Vertically center the modal</source>
+            <source>Vertically center the modal on the page</source>
         </trans-unit>
         </body>
     </file>

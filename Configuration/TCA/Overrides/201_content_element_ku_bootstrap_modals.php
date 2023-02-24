@@ -39,7 +39,7 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
 
     // New palette for modal content
     $GLOBALS['TCA']['tt_content']['palettes']['modals_content'] = array(
-        'showitem' => 'tx_ku_bootstrap_modals_size, tx_ku_bootstrap_modals_centered, --linebreak--, tx_ku_bootstrap_modals_button_label, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_type, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
+        'showitem' => 'tx_ku_bootstrap_modals_button_label, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_type, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
     );
 
     // Configure element type
@@ -51,6 +51,7 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
                 --palette--;LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_content_settings;modals_content,
+            --div--;LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:settings,pi_flexform;LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -102,36 +103,6 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
             'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_type',
             'description' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_type_desc',
             'onChange' => 'reload',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                    ]
-                ],
-            ],
-        ],
-        'tx_ku_bootstrap_modals_size' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size',
-            'description' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_desc',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_sm','modal-sm'],
-                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
-                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_lg','modal-lg'],
-                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_xl','modal-xl'],
-                ],
-                'default' => 'modal-lg',
-            ],
-        ],
-        'tx_ku_bootstrap_modals_centered' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_center',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -228,4 +199,11 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
             ),
         ],
     ]);
+
+    // Add flexForms for content element configuration
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+        '*',
+        'FILE:EXT:' . $extKey . '/Configuration/FlexForms/KuBootstrapModals.xml',
+        $extKey
+    );
 });

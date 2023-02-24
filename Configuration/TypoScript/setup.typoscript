@@ -28,13 +28,14 @@ tt_content.ku_bootstrap_modals {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-        10 {
+        10 = UniversityOfCopenhagen\KuBootstrapModals\DataProcessing\FlexFormProcessor
+        20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        20 {
             references.fieldName = image
             as = image
         }
-        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-        20 {
+        30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        30 {
             if.isTrue.field = tx_ku_bootstrap_modals_content_elements
             table = tt_content
             uidInList.field = tx_ku_bootstrap_modals_content_elements

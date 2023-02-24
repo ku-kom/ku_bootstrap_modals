@@ -11,7 +11,7 @@
     </button>
 
     <div class="modal fade" id="modal{modal-id}" tabindex="-1" aria-labelledby="label{modal-id}" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable {data.tx_ku_bootstrap_modals_size} {f:if(condition: '{data.tx_ku_bootstrap_modals_centered} === 1', then:'modal-dialog-centered')}">
+        <div class="modal-dialog modal-dialog-scrollable {data.pi_flexform.size} {f:if(condition: '{data.pi_flexform.center} == 1', then: ' modal-dialog-centered')}">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title" id="label{modal-id}">
@@ -19,7 +19,7 @@
                             <f:format.raw>{data.tx_ku_bootstrap_modals_modal_title}</f:format.raw>
                         </f:if>
                     </h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{f:translate(key: 'modal_close', extensionName: 'ku_bootstrap_modals')}"></button>
                 </div>
                 <div class="modal-body">
                     <f:if condition="{data.bodytext}">

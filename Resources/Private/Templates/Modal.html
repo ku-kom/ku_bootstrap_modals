@@ -26,7 +26,7 @@
                         <f:format.raw>{data.bodytext}</f:format.raw>
                     </f:if>
                     <f:if condition="{image.0}">
-                        <f:image image="{image.0}" class="img-fluid" />
+                        <f:image image="{image.0}" class="img-fluid" treatIdAsReference="true"  />
                     </f:if>
                     <f:if condition="{records}">
                         <div class="modal-records">

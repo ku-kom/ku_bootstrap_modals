@@ -32,16 +32,16 @@
             <source>Modal content</source>
         </trans-unit>
         <trans-unit id="modal_type">
-            <source>Modal type</source>
+            <source>Enable option to add existing content</source>
         </trans-unit>
          <trans-unit id="modal_type_desc">
-            <source>Enable option to add existing content.</source>
+            <source>If enabled, options to add existing content elements will be avaliable below.</source>
         </trans-unit>
         <trans-unit id="modal_default">
             <source>Only text and/or image (default)</source>
         </trans-unit>
         <trans-unit id="modal_records">
-            <source>Enable option to add existing content</source>
+            <source>Add existing content</source>
         </trans-unit>
         <trans-unit id="modal_size">
             <source>Modal width</source>

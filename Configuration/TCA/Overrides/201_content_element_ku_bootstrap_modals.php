@@ -8,17 +8,18 @@
  */
 
 defined('TYPO3') or die('Access denied.');
-call_user_func(function () {
+
+call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_bootstrap_modals') {
     // Add Content Element
-    if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_bootstrap_modals'] ?? false)) {
-        $GLOBALS['TCA']['tt_content']['types']['ku_bootstrap_modals'] = [];
+    if (!is_array($GLOBALS['TCA']['tt_content']['types'][$contentType] ?? false)) {
+        $GLOBALS['TCA']['tt_content']['types'][$contentType] = [];
     }
 
     // Add content element PageTSConfig
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
-        'ku_bootstrap_modals',
+        $contentType,
         'Configuration/TsConfig/Page/ku_bootstrap_modals.tsconfig',
-        'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_title'
+        'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_title'
     );
 
     // Add content element to selector list
@@ -26,30 +27,30 @@ call_user_func(function () {
         'tt_content',
         'CType',
         [
-            'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_title',
-            'ku_bootstrap_modals',
+            'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_title',
+            $contentType,
             'ku-bootstrap-modals-icon',
-            'ku_bootstrap_modals'
+            $extKey
         ]
     );
 
     // Assign Icon
-    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['ku_bootstrap_modals'] = 'ku-bootstrap-modals-icon';
+    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'][$contentType] = 'ku-bootstrap-modals-icon';
 
     // New palette for modal content
     $GLOBALS['TCA']['tt_content']['palettes']['modals_content'] = array(
-        'showitem' => 'tx_ku_bootstrap_modals_type,tx_ku_bootstrap_modals_size, tx_ku_bootstrap_modals_centered, --linebreak--, tx_ku_bootstrap_modals_button_label, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
+        'showitem' => 'tx_ku_bootstrap_modals_size, tx_ku_bootstrap_modals_centered, --linebreak--, tx_ku_bootstrap_modals_button_label, --linebreak--, tx_ku_bootstrap_modals_modal_title, --linebreak--, image, --linebreak--, bodytext, --linebreak--, tx_ku_bootstrap_modals_type, --linebreak--, tx_ku_bootstrap_modals_content_elements','canNotCollapse' => 1
     );
 
     // Configure element type
-    $GLOBALS['TCA']['tt_content']['types']['ku_bootstrap_modals'] = array_replace_recursive(
-        $GLOBALS['TCA']['tt_content']['types']['ku_bootstrap_modals'],
+    $GLOBALS['TCA']['tt_content']['types'][$contentType] = array_replace_recursive(
+        $GLOBALS['TCA']['tt_content']['types'][$contentType],
         [
             'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                --palette--;LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_content_settings;modals_content,
+                --palette--;LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_content_settings;modals_content,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
@@ -66,7 +67,7 @@ call_user_func(function () {
             ',
             'columnsOverrides' => [
                 'bodytext' => [
-                    'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_content',
+                    'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_content',
                     'config' => [
                         'enableRichtext' => true,
                     ]
@@ -78,8 +79,8 @@ call_user_func(function () {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', [
         'tx_ku_bootstrap_modals_button_label' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:button_label',
-            'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:button_label_description',
+            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:button_label',
+            'description' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:button_label_description',
             'config' => [
                 'type' => 'input',
                 'max' => 50,
@@ -88,67 +89,69 @@ call_user_func(function () {
         ],
         'tx_ku_bootstrap_modals_modal_title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_header',
+            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_header',
             'config' => [
                 'type' => 'input',
                 'max' => 150,
-                'eval' => 'trim'
+                'eval' => 'trim,required'
             ],
         ],
         'tx_ku_bootstrap_modals_type' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_type',
-            'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_type_desc',
+            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_type',
+            'description' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_type_desc',
             'onChange' => 'reload',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'items' => [
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_default','default'],
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_records','content'],
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
                 ],
             ],
         ],
         'tx_ku_bootstrap_modals_size' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size',
-            'description' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_desc',
+            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size',
+            'description' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_desc',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_sm','modal-sm'],
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_lg','modal-lg'],
-                    ['LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_size_xl','modal-xl'],
+                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_sm','modal-sm'],
+                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_default',''],
+                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_lg','modal-lg'],
+                    ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_size_xl','modal-xl'],
                 ],
                 'default' => 'modal-lg',
             ],
         ],
         'tx_ku_bootstrap_modals_centered' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_center',
+            'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_center',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
                 'items' => [
-                   [
-                      0 => '',
-                      1 => '',
-                   ]
+                    [
+                        0 => '',
+                        1 => '',
+                    ]
                 ],
             ],
         ],
         'tx_ku_bootstrap_modals_content_elements' => [
-             'displayCond' =>'FIELD:tx_ku_bootstrap_modals_type:=:content',
+             'displayCond' =>'FIELD:tx_ku_bootstrap_modals_type:=:1',
              'exclude' => true,
-             'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_records',
+             'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_records',
              'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'tt_content',
                 'maxitems' => 10,
-                'minitems' => 1,
+                'minitems' => 0,
                 'size' => 5,
                 'default' => 0,
                 'suggestOptions' => [
@@ -160,7 +163,7 @@ call_user_func(function () {
       ],
       'image' => [
         'exclude' => true,
-        'label' => 'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_media',
+        'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image',
                 [

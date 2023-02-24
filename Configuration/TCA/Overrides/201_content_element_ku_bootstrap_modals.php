@@ -70,6 +70,7 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
                     'label' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_be.xlf:modal_content',
                     'config' => [
                         'enableRichtext' => true,
+                        'rows' => 15,
                     ]
                 ],
             ]
@@ -150,14 +151,14 @@ call_user_func(function ($extKey ='ku_bootstrap_modals', $contentType ='ku_boots
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'tt_content',
-                'maxitems' => 10,
+                'maxitems' => 5,
                 'minitems' => 0,
                 'size' => 5,
                 'default' => 0,
                 'suggestOptions' => [
-                   'default' => [
-                      'additionalSearchFields' => 'header, subheader'
-                   ],
+                    'default' => [
+                        'additionalSearchFields' => 'header, subheader'
+                    ],
                 ],
          ],
       ],

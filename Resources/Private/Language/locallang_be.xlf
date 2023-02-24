@@ -23,7 +23,7 @@
             <source>Button to click on to open the modal popup</source>
         </trans-unit>
         <trans-unit id="modal_header">
-            <source>Modal header text</source>
+            <source>Modal title text</source>
         </trans-unit>
         <trans-unit id="modal_content">
             <source>Modal text content</source>
@@ -44,7 +44,7 @@
             <source>Add existing content</source>
         </trans-unit>
         <trans-unit id="modal_size">
-            <source>Modal width</source>
+            <source>Modal size</source>
         </trans-unit>
         <trans-unit id="modal_size_desc">
             <source>Note: Modals are always 100% wide on mobile</source>

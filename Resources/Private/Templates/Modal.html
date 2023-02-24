@@ -1,8 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
+
     <f:flashMessages />
+
     <f:variable name="modal-id">{data.uid}</f:variable>
+
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{modal-id}">
         <f:format.raw>{data.tx_ku_bootstrap_modals_button_label}</f:format.raw>
     </button>
@@ -25,11 +28,15 @@
                     <f:if condition="{image.0}">
                         <f:image image="{image.0}" class="img-fluid" />
                     </f:if>
-                    <f:for each="{records}" as="record">
-                        <f:format.raw>
-                            <f:cObject typoscriptObjectPath="tt_content" data="{record.data}" />
-                        </f:format.raw>
-                    </f:for>
+                    <f:if condition="{records}">
+                        <div class="modal-records">
+                            <f:for each="{records}" as="record">
+                                <f:format.raw>
+                                    <f:cObject typoscriptObjectPath="tt_content" data="{record.data}" />
+                                </f:format.raw>
+                            </f:for>
+                        </div>
+                    </f:if>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">{f:translate(key: 'modal_close', extensionName: 'ku_bootstrap_modals')}</button>
@@ -37,6 +44,7 @@
             </div>
         </div>
     </div>
+
     <f:if condition="{lib.ku_bootstrap_modals.pagecss !== ''}">
         <f:asset.css identifier="modalCSS" href="{f:cObject(typoscriptObjectPath: 'lib.ku_bootstrap_modals.pagecss')}" />
     </f:if>

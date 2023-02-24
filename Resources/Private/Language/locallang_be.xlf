@@ -17,7 +17,7 @@
             <source>Add existing content to create a modal popup</source>
         </trans-unit>
         <trans-unit id="settings">
-            <source>modal settings</source>
+            <source>Modal settings</source>
         </trans-unit>
         <trans-unit id="advanced">
             <source>General settings</source>

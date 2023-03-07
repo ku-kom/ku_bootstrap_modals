@@ -14,6 +14,6 @@ call_user_func(function () {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
         $extensionKey,
         'Configuration/TypoScript',
-        'LLL:EXT:ku_bootstrap_modals/Resources/Private/Language/locallang_be.xlf:modal_title'
+        'KU Bootstrap Modals'
     );
 });

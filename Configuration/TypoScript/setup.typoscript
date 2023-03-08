@@ -28,7 +28,7 @@ tt_content.ku_bootstrap_modals {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = UniversityOfCopenhagen\KuBootstrapModals\DataProcessing\FlexFormProcessor
+        10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
         20 {
             references.fieldName = image

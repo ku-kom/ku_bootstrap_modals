@@ -3,6 +3,7 @@
 <f:section name="Main">
 
     <f:flashMessages />
+    <f:debug>{_all}</f:debug>
 
     <f:variable name="modal-id">{data.uid}</f:variable>
 
@@ -11,7 +12,7 @@
     </button>
 
     <div class="modal fade" id="modal-{modal-id}" tabindex="-1" aria-labelledby="label-{modal-id}" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable {data.pi_flexform.size} {f:if(condition: '{data.pi_flexform.center} == 1', then: ' modal-dialog-centered')}">
+        <div class="modal-dialog modal-dialog-scrollable {flexFormData.size} {f:if(condition: '{flexFormData.center} == 1', then: ' modal-dialog-centered')}">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title" id="label-{modal-id}">
